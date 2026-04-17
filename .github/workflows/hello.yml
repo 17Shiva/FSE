@@ -1,0 +1,22 @@
+name : My First Workflow
+
+on: push
+
+jobs:
+  
+  say-hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: print message
+        run: echo "Hello, GitHub Action!"
+
+      - name: print Names
+        run: echo "Hello,Shiva this side!"
+
+  say-bye:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: print message
+        run: echo "Goodbye from second job Sir"
