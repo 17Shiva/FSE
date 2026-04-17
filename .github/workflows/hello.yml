@@ -1,6 +1,6 @@
 name : My First Workflow
 
-on: push
+on: [push,pull_request]
 
 jobs:
   
@@ -12,7 +12,7 @@ jobs:
         run: echo "Hello, GitHub Action!"
 
       - name: print Names
-        run: echo "Hello,Shiva this side!"
+        run: echo "Hello,Shiva this side! new reques in side1"
 
   say-bye:
     runs-on: ubuntu-latest
