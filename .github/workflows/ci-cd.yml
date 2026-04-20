@@ -1,27 +1,3 @@
-# name : My First Workflow
-
-# on: [push,pull_request]
-
-# jobs:
-  
-#   say-hello:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - name: print message
-#         run: echo "Hello, GitHub Action!"
-
-#       - name: print Names
-#         run: echo "Hello,Shiva this side! new reques in side1"
-
-#   say-bye:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - name: print message
-#         run: echo "Goodbye from second job Sir"
-
-
 name: CI-CD Pipeline
 
 on:
@@ -33,15 +9,15 @@ jobs:
   run-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Run Test 1
+      - name: Test Step 1
         run: echo "test is running"
 
-      - name: Run Test 2
+      - name: Test Step 2
         run: echo "test successful"
 
   deploy-app:
-    needs: run-test   # ensures this runs AFTER run-test
+    needs: run-test
     runs-on: ubuntu-latest
     steps:
       - name: Deploy Step
-        run: echo "Deploying application..."
+        run: echo "Deploying application......"
