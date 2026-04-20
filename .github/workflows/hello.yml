@@ -1,22 +1,47 @@
-name : My First Workflow
+# name : My First Workflow
 
-on: [push,pull_request]
+# on: [push,pull_request]
+
+# jobs:
+  
+#   say-hello:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: print message
+#         run: echo "Hello, GitHub Action!"
+
+#       - name: print Names
+#         run: echo "Hello,Shiva this side! new reques in side1"
+
+#   say-bye:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: print message
+#         run: echo "Goodbye from second job Sir"
+
+
+name: CI-CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  
-  say-hello:
+  run-test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: print message
-        run: echo "Hello, GitHub Action!"
+      - name: Run Test 1
+        run: echo "test is running"
 
-      - name: print Names
-        run: echo "Hello,Shiva this side! new reques in side1"
+      - name: Run Test 2
+        run: echo "test successful"
 
-  say-bye:
+  deploy-app:
+    needs: run-test   # ensures this runs AFTER run-test
     runs-on: ubuntu-latest
-
     steps:
-      - name: print message
-        run: echo "Goodbye from second job Sir"
+      - name: Deploy Step
+        run: echo "Deploying application..."
