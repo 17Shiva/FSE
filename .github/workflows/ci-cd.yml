@@ -33,14 +33,14 @@ jobs:
   run-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Test Step 1
+      - name: Run Test 1
         run: echo "test is running"
 
-      - name: Test Step 2
+      - name: Run Test 2
         run: echo "test successful"
 
   deploy-app:
-    needs: run-test
+    needs: run-test   # ensures this runs AFTER run-test
     runs-on: ubuntu-latest
     steps:
       - name: Deploy Step
