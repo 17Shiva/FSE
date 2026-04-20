@@ -1,12 +1,25 @@
-name: CI-CD Pipeline
+name: My First Workflow
 
-on:
-  push:
-    branches:
-      - main
-      - side
+# on: [push, pull_request]
+on: push
 
 jobs:
+  # say-hello:
+  #   runs-on: ubuntu-latest
+  #   needs: say-bye
+  #   steps:
+  #     - name: Print message
+  #       run: echo "Hello, Github Actions!"
+        
+  #     - name: Print my name
+  #       run: echo "Vansh"
+  
+  # say-bye:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Print message
+  #       run: echo "GoodBye from second job"
   test:
     runs-on: ubuntu-latest
 
@@ -14,19 +27,5 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: List Files
+      - name: list file
         run: ls
-
-      - name: Test Message
-        run: echo "Test job completed"
-
-  deploy:
-    needs: test   # 👈 ensures deploy runs after test
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Deploy Message
-        run: echo "Deploy job running"
