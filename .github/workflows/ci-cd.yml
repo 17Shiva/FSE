@@ -1,3 +1,30 @@
+# name: CI-CD Pipeline
+
+# on:
+#   push:
+#     branches:
+#       - main
+#       - side
+
+# jobs:
+#   run-test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Test Step 1
+#         run: echo "test is running"
+
+#       - name: Test Step 2
+#         run: echo "test successful"
+
+#   deploy-app:
+#     needs: run-test
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Deploy Step
+#         run: echo "Deploying application......"
+
+
+
 name: CI-CD Pipeline
 
 on:
@@ -10,15 +37,18 @@ jobs:
   run-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Test Step 1
-        run: echo "test is running"
+      - name: Checkout Code
+        uses: actions/checkout@v4   # 👈 clone repo
 
-      - name: Test Step 2
-        run: echo "test successful"
+      - name: Test Step
+        run: echo "test running"
 
   deploy-app:
     needs: run-test
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy Step
-        run: echo "Deploying application......"
+      - name: Checkout Code
+        uses: actions/checkout@v4   # 👈 clone again
+
+      - name: Deploy
+        run: echo "deploying..."
