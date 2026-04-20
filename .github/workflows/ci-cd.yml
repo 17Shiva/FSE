@@ -20,12 +20,17 @@ jobs:
   #   steps:
   #     - name: Print message
   #       run: echo "GoodBye from second job"
-  test:
-    runs-on: ubuntu-latest
+test:
+  runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+  steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
 
-      - name: list file
-        run: ls
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+
+    - name: Check Node & NPM version
+      run: node -v
